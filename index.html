@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>HomeGenius Survey Sheet</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#1f2937"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<style id="css">
+:root{--bg:#e9edf2;--tx:#1b2433;--a:#2f6fed;--bd:#8a94a6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:#1b2433}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;background:#1f2937}
+.bar button{font-size:16px;padding:12px 16px;border:0;border-radius:10px;background:#2f6fed;color:#fff;font-weight:700}
+.bar button.g{background:#374151}.bar span{color:#cbd5e1;align-self:center;font-size:13px;margin-left:auto}
+#sheet{background:#fff;max-width:1100px;margin:14px auto;padding:26px 30px;border-radius:6px;box-shadow:0 2px 10px #0002}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.lg{height:70px;width:auto}.logo{font-size:26px;font-weight:700;letter-spacing:.35em;line-height:1.15}.co{text-align:right;font-size:12px;line-height:1.5}
+h1{text-align:center;font-size:20px;letter-spacing:.08em;margin:14px 0}
+h3{font-size:14px;margin:18px 0 6px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px}
+.f{display:flex;align-items:center;gap:8px;font-size:14px;margin:7px 0}.f label{white-space:nowrap}
+input,textarea{font:inherit;font-size:16px;color:#1b2433;background:#fff;width:100%;min-width:0;border:0;border-bottom:1px dotted var(--bd);padding:9px 4px;border-radius:0}
+input:focus,textarea:focus{outline:0;background:#eef3ff;border-bottom:2px solid var(--a)}
+textarea{border:1px solid var(--bd);border-radius:4px;padding:8px;min-height:80px}
+table{width:100%;border-collapse:collapse;table-layout:fixed}th{font-size:12px;background:#f1f3f6}
+th,td{border:1px solid var(--bd);padding:0}td input{border:0;padding:11px 6px;min-height:44px}
+.n{width:38px;text-align:center;font-size:13px}.q{width:70px}
+.add{margin-top:6px;font-size:14px;padding:9px 14px;border:1px solid var(--a);color:var(--a);background:#fff;border-radius:8px}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px;margin-top:10px}
+.pad{border:1px solid var(--bd);border-radius:4px;height:110px;width:100%;touch-action:none;background:#fff;display:block}
+.clr{font-size:12px;padding:5px 10px;margin:4px 0;border:1px solid var(--bd);background:#fff;border-radius:6px}
+.sgimg{height:110px;max-width:100%}
+.list{position:fixed;inset:0;background:#0009;display:none;z-index:9;padding:20px}.list.on{display:block}
+.box{background:#fff;max-width:560px;margin:30px auto;border-radius:12px;padding:16px;max-height:80%;overflow:auto}
+.it{display:flex;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid #e5e7eb}.it b{flex:1;font-size:15px}.it small{color:#6b7280}
+.it button{font-size:14px;padding:8px 12px;border-radius:8px;border:1px solid var(--a);background:#fff;color:var(--a)}.it .d{border-color:#e5484d;color:#e5484d}
+@media (max-width:700px){.cols,.sg{grid-template-columns:1fr}#sheet{padding:16px}}
+@media print{.bar,.add,.clr,.list,.noprint{display:none!important}body{background:#fff}#sheet{box-shadow:none;margin:0;max-width:none;padding:0}input,textarea{font-size:12px}}
+</style></head><body>
+<div class="bar noprint"><button id="be">Save &amp; Email</button><button class="g" id="bn">New</button><button class="g" id="bs">Save</button><button class="g" id="bl">Saved surveys</button><button class="g" id="bd">Download file</button><button class="g" id="bp">Print / PDF</button><button class="g" id="bt">Settings</button><span id="st"></span></div>
+<div id="sheet">
+<div class="hd"><img class="lg" alt="HomeGenius" src="data:image/png;base64,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"><div class="co"><b>HomeGenius Ltd</b><br>48, Rue Des Marguerites, Montreal 2, Coromandel, Mauritius<br>+230 5721 4111<br>sav.homegenius@gmail.com<br>BRN C24212791</div></div>
+<h1>SURVEY SHEET</h1>
+<div class="cols"><div>
+<div class="f"><label>Client Name :</label><input data-k="cn"></div><div class="f"><label>Address :</label><input data-k="ca"></div>
+<div class="f"><label>Telephone Number :</label><input data-k="ct" type="tel"></div><div class="f"><label>Email Address :</label><input data-k="ce" type="email"></div></div>
+<div><div class="f"><label>Site Address :</label><input data-k="sa"></div><div class="f"><label>Contact Person :</label><input data-k="sp"></div>
+<div class="f"><label>Telephone Number :</label><input data-k="st" type="tel"></div><div class="f"><label>Email Address :</label><input data-k="se" type="email"></div></div></div>
+<h3>Project Description :</h3><textarea data-k="pd"></textarea>
+<div class="f"><label>Availability of site - as from :</label><input data-k="av" type="date"><label>- working time slot :</label><input data-k="ws"></div>
+<h3>EQUIPMENTS :</h3><table><thead><tr><th class="n">#</th><th>ITEM</th><th class="q">QTY</th><th>LOCATION</th><th>REMARKS</th></tr></thead><tbody id="eq"></tbody></table><button class="add noprint" data-t="eq">+ Add row</button>
+<h3>CONSUMABLES :</h3><table><thead><tr><th class="n">#</th><th>ITEM</th><th class="q">QTY</th><th>LOCATION</th><th>REMARKS</th></tr></thead><tbody id="co"></tbody></table><button class="add noprint" data-t="co">+ Add row</button>
+<div class="f" style="margin-top:16px"><label><b>MAN-DAY :</b></label><input data-k="md" inputmode="decimal"></div>
+<div class="f"><label>Customer/Site Requisite :</label><input data-k="rq"></div><div class="f"><input data-k="rq2"></div>
+<div class="sg"><div><div class="f"><label>Name :</label><input data-k="tn"></div><div class="f"><label>Signature :</label></div><canvas class="pad" data-s="ts"></canvas><button class="clr noprint" data-c="ts">Clear</button><div class="f"><label>Date :</label><input data-k="td" type="date"></div></div>
+<div><div class="f"><label>Client Name :</label><input data-k="kn"></div><div class="f"><label>Client Signature :</label></div><canvas class="pad" data-s="ks"></canvas><button class="clr noprint" data-c="ks">Clear</button><div class="f"><label>Date :</label><input data-k="kd" type="date"></div></div></div>
+</div>
+<div class="list" id="ls"><div class="box"><div style="display:flex;justify-content:space-between"><b>Saved surveys</b><button class="clr" id="lc">Close</button></div><div id="li"></div></div></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],LK='hg_surveys';
+let cur=null;const sigs={};
+function msg(t){$('#st').textContent=t;setTimeout(()=>$('#st').textContent='',4000)}
+function addRow(id,v){const b=$('#'+id),n=b.rows.length+1,tr=b.insertRow();tr.innerHTML='<td class="n">'+n+'</td>'+[0,1,2,3].map(i=>'<td'+(i==1?' class="q"':'')+'><input></td>').join('');
+ if(v)[...tr.querySelectorAll('input')].forEach((x,i)=>x.value=v[i]||'')}
+function reset(){$$('[data-k]').forEach(i=>i.value='');['eq','co'].forEach(t=>{$('#'+t).innerHTML='';for(let i=0;i<(t=='eq'?10:8);i++)addRow(t)});
+ ['td','kd'].forEach(k=>$('[data-k='+k+']').value=new Date().toISOString().slice(0,10));$$('canvas').forEach(clr);cur=null}
+const rows=t=>[...$('#'+t).rows].map(r=>[...r.querySelectorAll('input')].map(i=>i.value));
+function collect(){const f={};$$('[data-k]').forEach(i=>f[i.dataset.k]=i.value);const s={};$$('canvas').forEach(c=>s[c.dataset.s]=c.dataset.d?c.toDataURL():'');return{f,eq:rows('eq'),co:rows('co'),s}}
+function load(d){reset();$$('[data-k]').forEach(i=>i.value=d.f[i.dataset.k]||'');['eq','co'].forEach(t=>{$('#'+t).innerHTML='';d[t].forEach(r=>addRow(t,r))});
+ $$('canvas').forEach(c=>{const u=d.s[c.dataset.s];if(u){const im=new Image();im.onload=()=>{c.getContext('2d').drawImage(im,0,0,c.width,c.height);c.dataset.d=1};im.src=u}})}
+const all=()=>{try{return JSON.parse(localStorage.getItem(LK)||'[]')}catch(e){return[]}};
+const put=a=>{try{localStorage.setItem(LK,JSON.stringify(a));return true}catch(e){msg('Storage full / unavailable');return false}};
+function draft(){try{localStorage.setItem('hg_draft',JSON.stringify({cur,d:collect()}))}catch(e){}}
+$('#bs').onclick=()=>{const d=collect(),a=all(),t=(d.f.cn||'No name')+' · '+(d.f.td||'');
+ if(cur){const i=a.findIndex(x=>x.id==cur);if(i>=0)a[i]={id:cur,t,d,ts:Date.now()};else a.unshift({id:cur,t,d,ts:Date.now()})}else{cur=Date.now();a.unshift({id:cur,t,d,ts:cur})}
+ if(put(a))msg('Saved ✓')};
+$('#bn').onclick=()=>{if(confirm('Start a new blank survey? Unsaved changes will be lost.'))reset()};
+function showList(){const a=all();$('#li').innerHTML=a.length?'':'<p>Nothing saved yet.</p>';a.forEach(x=>{const e=document.createElement('div');e.className='it';
+ e.innerHTML='<b></b><small>'+new Date(x.ts).toLocaleDateString()+'</small><button>Open</button><button class="d">Delete</button>';e.querySelector('b').textContent=x.t;
+ e.children[2].onclick=()=>{load(x.d);cur=x.id;$('#ls').classList.remove('on')};
+ e.children[3].onclick=()=>{if(confirm('Delete this survey?')){put(all().filter(y=>y.id!=x.id));showList()}};$('#li').appendChild(e)});$('#ls').classList.add('on')}
+$('#bl').onclick=showList;$('#lc').onclick=()=>$('#ls').classList.remove('on');$('#bp').onclick=()=>window.print();
+$('#bd').onclick=()=>{
+ const c=$('#sheet').cloneNode(true);c.querySelectorAll('input').forEach((i,k)=>i.setAttribute('value',$$('#sheet input')[k].value));
+ c.querySelectorAll('textarea').forEach((t,k)=>t.textContent=$$('#sheet textarea')[k].value);
+ c.querySelectorAll('canvas').forEach((x,k)=>{const o=$$('#sheet canvas')[k];if(o.dataset.d){const im=document.createElement('img');im.src=o.toDataURL();im.className='sgimg';x.replaceWith(im)}else x.remove()});
+ c.querySelectorAll('.add,.clr').forEach(x=>x.remove());
+ const h='<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Survey</title><style>'+$('#css').textContent+'</style></head><body>'+c.outerHTML+'</body></html>';
+ const n=($('[data-k=cn]').value||'survey').replace(/[^\w\-]+/g,'_');
+ const lk=document.createElement('a');lk.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));lk.download='Survey_'+n+'_'+new Date().toISOString().slice(0,10)+'.html';document.body.appendChild(lk);lk.click();lk.remove();setTimeout(()=>URL.revokeObjectURL(lk.href),5000)};
+$$('.add').forEach(b=>b.onclick=()=>addRow(b.dataset.t));
+$$('canvas').forEach(c=>{const r=c.getBoundingClientRect();c.width=900;c.height=220;const x=c.getContext('2d');x.lineWidth=4;x.lineCap='round';x.strokeStyle='#111';let on=false;
+ const p=e=>{const b=c.getBoundingClientRect();return[(e.clientX-b.left)*c.width/b.width,(e.clientY-b.top)*c.height/b.height]};
+ c.onpointerdown=e=>{on=true;c.setPointerCapture(e.pointerId);const[a,b]=p(e);x.beginPath();x.moveTo(a,b);x.lineTo(a+.1,b+.1);x.stroke()};
+ c.onpointermove=e=>{if(!on)return;const[a,b]=p(e);x.lineTo(a,b);x.stroke();c.dataset.d=1};c.onpointerup=()=>{on=false;draft()}});
+function clr(c){c.getContext('2d').clearRect(0,0,c.width,c.height);delete c.dataset.d}
+$$('[data-c]').forEach(b=>b.onclick=()=>{clr($('[data-s='+b.dataset.c+']'));draft()});
+let tm;document.addEventListener('input',()=>{clearTimeout(tm);tm=setTimeout(draft,600)});
+/* ===== App features: email, settings, outbox ===== */
+const CFG='hg_cfg';
+const cfg=()=>{try{return JSON.parse(localStorage.getItem(CFG)||'{}')}catch(e){return{}}};
+$('#bt').onclick=()=>{const c=cfg();const u=prompt('Web app URL (ends with /exec):',c.url||'');if(u===null)return;const k=prompt('Secret key:',c.key||'');if(k===null)return;
+ try{localStorage.setItem(CFG,JSON.stringify({url:u.trim(),key:k.trim()}))}catch(e){}msg('Settings saved')};
+function store(want){const d=collect(),a=all(),t=(d.f.cn||'No name')+' · '+(d.f.td||'');if(!cur)cur=Date.now();
+ const i=a.findIndex(x=>x.id==cur),rec={id:cur,t,d,ts:Date.now(),sent:false,want:!!want};
+ if(i>=0)a[i]=rec;else a.unshift(rec);return put(a)?rec:null}
+async function send(rec){const c=cfg();if(!c.url||!c.key){msg('Tap Settings and enter the web app URL and key first');return false}
+ try{const r=await fetch(c.url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({key:c.key,id:rec.id+'_'+rec.ts,f:rec.d.f,eq:rec.d.eq,co:rec.d.co,s:rec.d.s})});
+  const j=await r.json();if(j&&j.ok){const a=all(),i=a.findIndex(x=>x.id==rec.id&&x.ts==rec.ts);if(i>=0){a[i].sent=true;put(a)}return true}
+  msg('Server refused: '+((j&&j.error)||'check the key'));return false}catch(e){return false}}
+$('#be').onclick=async()=>{if(!$('[data-k=cn]').value){msg('Enter the client name first');return}
+ const rec=store(true);if(!rec)return;msg('Sending…');
+ if(await send(rec)){msg('Saved & emailed ✓');alert('Survey saved and emailed')}else msg('Saved on tablet – not sent yet (Saved surveys > Send)')};
+$('#bs').onclick=()=>{if(store(false))msg('Saved ✓')};
+function showList(){const a=all();$('#li').innerHTML=a.length?'':'<p>Nothing saved yet.</p>';a.forEach(x=>{const e=document.createElement('div');e.className='it';
+ e.innerHTML='<b></b><small></small><button>Open</button><button>Send</button><button class="d">Delete</button>';
+ e.querySelector('b').textContent=x.t;e.querySelector('small').textContent=x.sent?'✓ sent':'not sent';const bt=e.querySelectorAll('button');
+ bt[0].onclick=()=>{load(x.d);cur=x.id;$('#ls').classList.remove('on')};
+ bt[1].onclick=async()=>{msg('Sending…');const ok=await send(x);msg(ok?'Emailed ✓':'Not sent');showList()};
+ bt[2].onclick=()=>{if(confirm('Delete this survey?')){put(all().filter(y=>y.id!=x.id));showList()}};$('#li').appendChild(e)});$('#ls').classList.add('on')}
+async function flush(){if(!cfg().url||!navigator.onLine)return;for(const x of all().filter(y=>y.want&&!y.sent)){if(await send(x))msg('Sent: '+x.t)}}
+addEventListener('online',flush);setTimeout(flush,3000);
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+/* ===== Ajax MSRP price list (1 June 2026): Equipments dropdown + Estimate button ===== */
+(function(){
+const RAW=`Hub|white|8547.70
+Hub 2|white|12039.98
+Hub 2 Plus|white|20588.80
+ReX|white|6334.07
+ReX 2|white|8866.81
+DoorProtect|black|1906.80
+DoorProtect|white|1906.80
+DoorProtect Plus|black|2852.95
+DoorProtect Plus|white|2852.95
+GlassProtect|white|3173.17
+MotionProtect|white|3173.17
+MotionProtect Plus|white|4439.54
+CombiProtect|white|4439.54
+MotionProtect Outdoor|white|11081.55
+Hood (MPO)||639.32
+MotionCam Outdoor|white|14953.18
+Curtain Outdoor|white|8044.50
+DualCurtain Outdoor|white|11081.55
+Curtain Outdoor Mini|white|5578.71
+CurtainCam Outdoor HighMount (PhOD)|white|17038.50
+MotionProtect Curtain|white|3800.22
+MotionCam|white|7281.34
+Keypad|white|5066.59
+Keypad Plus|white|6334.07
+Keypad Touchscreen|white|15969.62
+Pass|black|291.21
+Tag|white|317.32
+Button|black|1586.59
+Button|white|1586.59
+DoubleButton|black|1586.59
+DoubleButton|white|1586.59
+Holder for Button/DoubleButton|white|247.69
+SpaceControl|black|1586.59
+SpaceControl|white|1586.59
+StreetSiren|white|6334.07
+HomeSiren|white|3173.17
+StreetSiren DoubleDeck|white|6334.07
+Brandplate for StreetSiren DoubleDeck|black|412.04
+Transmitter||2533.85
+MultiTransmitter|white|7920.66
+12V PSU for Hub/Hub Plus/ReX||1266.37
+12-24V PSU for Hub 2 / Hub 2 Plus / ReX 2||1266.37
+6V PSU for Hub 2||1266.37
+DoorBell|white|13388.91
+TurretCam (5 Mp/4 mm)|white|7531.26
+BulletCam (5 Mp/4 mm)|black|7531.26
+BulletCam (5 Mp/4 mm)|white|7531.26
+DomeCam Mini (5 Mp/2.8 mm)|black|7531.26
+DomeCam Mini (5 Mp/2.8 mm)|white|7531.26
+DomeCam Mini (5 Mp/4 mm)|black|7531.26
+DomeCam Mini (5 Mp/4 mm)|white|7531.26
+BulletCam HL (5 Mp/4 mm)|white|9204.88
+JunctionBox (118) ASP|black|1517.41
+JunctionBox (118) ASP|white|1517.41
+NVR (8ch)|white|10599.55
+NVR (16ch)|white|15620.40
+FireProtect|white|3800.22
+FireProtect 2 RB (Heat/Smoke/CO)|white|6274.94
+Manual Call Point|red|4596.86
+LeaksProtect|white|2533.85
+WaterStop [1/2]|black|9885.48
+WaterStop [1/2]|white|9885.48
+WaterStop [1]|black|13047.49
+WaterStop [1]|white|13047.49
+WaterStop [3/4]|black|11152.96
+WaterStop [3/4]|white|11152.96
+WallSwitch|black|2214.75
+Relay||2214.75
+DIN Holder|black|413.94
+LifeQuality|white|13935.62
+Socket EU|white|3800.22
+LightCore (1-gang) [55]||3112.92
+LightCore (2-gang) [55]||3574.84
+LightCore (2-way) [55]||3327.14
+LightCore (2-gang/2-way)||3642.90
+Frame (2 seats) [55]||319.10
+Frame (3 seats) [55]||379.35
+Frame (4 seats) [55]||461.92
+Frame (5 seats) [55]||497.62
+CenterButton (1-gang/2-way) [55]|black|569.03
+CenterButton (1-gang/2-way) [55]|white|569.03
+CenterButton (2-gang) [55]|black|615.89
+CenterButton (2-gang) [55]|white|615.89
+SideButton (1-gang/2-way) [55]|black|497.62
+SideButton (1-gang/2-way) [55]|white|497.62
+SideButton (2-gang) [55]|black|533.32
+SideButton (2-gang) [55]|white|533.32
+SoloButton (1-gang/2-way) [55]|black|521.05
+SoloButton (1-gang/2-way) [55]|white|521.05
+SoloButton (2-gang) [55]|black|591.34
+SoloButton (2-gang) [55]|white|591.34
+OutletCore (smart) [type F] [55]||2356.45
+SoloCover (smart) [type F] [55]|black|862.47
+SoloCover (smart) [type F] [55]|white|862.47
+SideCover (smart) [type F] [55]|black|833.46
+SideCover (smart) [type F] [55]|white|833.46
+CenterCover (smart) [type F] [55]|black|804.45
+CenterCover (smart) [type F] [55]|white|804.45
+SurfaceBox|white|632.63`;
+const key=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
+const P=RAW.trim().split('\n').map(l=>{const a=l.split('|');const label=a[1]?a[0]+' \u2013 '+a[1]:a[0];return{label:label,k:key(label),nk:key(a[0]),msrp:+a[2]}});
+const byK={},byN={};P.forEach(p=>{byK[p.k]=p;if(!byN[p.nk])byN[p.nk]=p});
+const find=s=>{const k=key(s);return byK[k]||byN[k]||null};
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const fmt=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const dl=document.createElement('datalist');dl.id='ajax';dl.innerHTML=P.map(p=>'<option value="'+esc(p.label)+'">').join('');document.body.appendChild(dl);
+const eq=document.getElementById('eq');
+const mark=()=>eq.querySelectorAll('tr').forEach(tr=>{const i=tr.querySelector('input');if(i&&!i.getAttribute('list'))i.setAttribute('list','ajax')});
+new MutationObserver(mark).observe(eq,{childList:true});mark();
+const m=document.createElement('div');
+m.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:none;z-index:99;padding:16px;font-family:Arial,sans-serif';
+m.innerHTML='<div style="background:#fff;color:#1b2433;max-width:640px;margin:20px auto;border-radius:12px;padding:18px;max-height:88%;overflow:auto"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><b style="font-size:18px">Estimate \u2013 Ajax devices (MSRP)</b><button id="est_x" style="font-size:15px;padding:10px 16px;border:1px solid #8a94a6;border-radius:8px;background:#fff">Close</button></div><div id="est_b"></div></div>';
+document.body.appendChild(m);
+document.getElementById('est_x').onclick=()=>{m.style.display='none'};
+function calc(){
+ let tot=0,h='',un=[],bl=false,n=0;
+ eq.querySelectorAll('tr').forEach(tr=>{
+  const v=[...tr.querySelectorAll('input')].map(i=>i.value.trim()),it=v[0];if(!it)return;
+  const p=find(it);if(!p){const k=key(it),sg=P.filter(x=>x.k.indexOf(k)>=0).slice(0,3).map(x=>x.label);const u=it+(sg.length?' (try: '+sg.join(' / ')+')':'');if(un.indexOf(u)<0)un.push(u);return}
+  let q=parseFloat((v[1]||'').replace(',','.'));if(!(q>0)){q=1;bl=true}
+  const t=q*p.msrp;tot+=t;n++;
+  h+='<tr><td style="padding:6px 4px;border-bottom:1px solid #e5e7eb">'+esc(p.label)+'</td><td style="text-align:center;border-bottom:1px solid #e5e7eb">'+q+'</td><td style="text-align:right;border-bottom:1px solid #e5e7eb">'+fmt(p.msrp)+'</td><td style="text-align:right;border-bottom:1px solid #e5e7eb">'+fmt(t)+'</td></tr>'});
+ let o='';
+ if(n){o='<table style="width:100%;border-collapse:collapse;margin-top:12px;font-size:14px"><tr style="background:#f1f3f6"><th style="text-align:left;padding:6px 4px">Item</th><th>Qty</th><th style="text-align:right">MSRP</th><th style="text-align:right">Total</th></tr>'+h+'</table><div style="text-align:right;font-size:22px;font-weight:700;margin:14px 0">Total: '+fmt(tot)+'</div>'}
+ else o='<p>No Ajax devices found. Pick items from the list in the Equipments &ldquo;Item&rdquo; column first.</p>';
+ if(bl)o+='<p style="font-size:13px;color:#b45309">Rows with no quantity are counted as 1.</p>';
+ if(un.length)o+='<p style="font-size:13px;color:#b45309">Not priced (not in the Ajax list): '+un.map(esc).join('; ')+'</p>';
+ o+='<p style="font-size:12px;color:#6b7280">Based on the Ajax MSRP price list dated 1 June 2026 (valid 60 days) \u2013 confirm current prices before quoting. Equipment rows only; consumables and labour are not included.</p><p style="font-size:11px;color:#9ca3af">Price list loaded: '+P.length+' items</p>';
+ document.getElementById('est_b').innerHTML=o;m.style.display='block';
+}
+const bar=document.querySelector('.bar'),b=document.createElement('button');
+b.textContent='Estimate';b.style.background='#059669';
+bar.insertBefore(b,bar.querySelector('span'));b.onclick=calc;
+})();
+
+reset();try{const d=JSON.parse(localStorage.getItem('hg_draft')||'null');if(d&&d.d){load(d.d);cur=d.cur;msg('Draft restored')}}catch(e){}
+</script></body></html>
